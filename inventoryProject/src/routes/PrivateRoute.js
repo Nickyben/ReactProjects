@@ -8,6 +8,7 @@ function PrivateRoute({ children, ...rest }) {
 
 	return (
 		<Route
+			
 			{...rest}
 			render={({ location }) => {
 				return !!isAuthenticated? (

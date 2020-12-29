@@ -12,12 +12,11 @@ import AddProduct from './views/AddProduct';
 import Statistics from './views/Statistics';
 import PrivateRoute from './routes/PrivateRoute';
 import Home from './views/Home';
+import Error from './views/ErrorPage';
 
 function App() {
 	return (
 		<div className="App">
-		
-
 			<Switch>
 				<Route exact path="/">
 					<Login />
@@ -35,7 +34,9 @@ function App() {
 				<PrivateRoute path="/home">
 					<Home />
 				</PrivateRoute>
-
+				<Route path="/">
+					<Error/> 
+				</Route>
 				{/* <Route path="/add-warehouse">
 					<AddWareHouse />
 				</Route>

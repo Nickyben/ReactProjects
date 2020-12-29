@@ -6,14 +6,19 @@ function PageHeader({ title, titleLink }) {
 		<div
 			className="subnavbar"
 			style={{
-       borderTopWidth: 1,
+				top:56,
+				width: '100%',
+				marginBottom:56,
+				position:"fixed",
+				zIndex:500,
+       	borderTopWidth: 1,
 				borderLeftWidth: 1,
 				borderTopColor: '#ddd',
         borderLeftColor: '#eee',
 				borderTopStyle: 'solid',
 				borderLeftStyle: 'solid',
 			}}>
-			<nav className="navbar navbar-expand-lg navbar-light ">
+			<nav className="navbar navbar-expand-lg navbar-light" >
 				<div className="container">
 					<Link className="navbar-brand" to={`${titleLink}`}>
 						{title}

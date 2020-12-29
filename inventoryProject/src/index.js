@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import App from './App';
-import authReducer from './reduxStore/reducers/authReducer';
+import authReducer from './store/reducers/authReducer';
 //import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({

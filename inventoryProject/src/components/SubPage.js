@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Route, Link, useParams, useRouteMatch } from 'react-router-dom';
-import { unDashed } from '../MyFuncs';
+import { unDashed } from '../constants/MyFuncs';
 
 const SubPage = ({subPages}) => {
 	const { url, path } = useRouteMatch();

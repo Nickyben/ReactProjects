@@ -14,15 +14,16 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Page from '../components/Page';
-import { toTitleCase, dashed } from '../MyFuncs';
+import { toTitleCase, dashed } from '../constants/MyFuncs';
 import AddProduct from './AddProduct';
 import AddWareHouse from './AddWareHouse';
 import AddProductCategory from './AddProductCategory';
+import Dashboard from './Dashboard';
 
 const homeStructure = [
 	{
 		id: 'dashboard',
-		component: ({}) => <h1>Dashboard</h1>,
+		component: Dashboard,
 		icon: 'table',
 		subNav: [
 			{ id: 'general', component: ({}) => <h1>General</h1> },
@@ -56,7 +57,7 @@ const homeStructure = [
 
 const styles = {
 	toggler: {
-		backgroundColor: '#ccc',
+		backgroundColor: '#bbb',
 		color: 'blue',
 	},
 	navText: {
@@ -86,6 +87,7 @@ function Home() {
 								style={{
 									top: 56,
 									bottom: 0,
+									position:'fixed',
 									backgroundColor: 'white',
 								}}
 								onToggle={(isOpen) => sidebarControlled(isOpen)}
@@ -99,7 +101,7 @@ function Home() {
 								<SideNav.Nav defaultSelected={homeStructure[0].id}>
 									{homeStructure.map((page, index) => {
 										return (
-											<NavItem eventKey={dashed(page.id)}>
+											<NavItem eventKey={dashed(page.id)} key={index}>
 												<NavIcon>
 													<i
 														className={`fa fa-fw fa-${page.icon}`}
@@ -110,7 +112,7 @@ function Home() {
 												<NavText style={styles.navText}>{toTitleCase(page.id)}</NavText>
 												{page.subNav.map((subPage, index) => {
 													return (
-														<NavItem eventKey={`${dashed(page.id)}/${dashed(subPage.id)}`}>
+														<NavItem eventKey={`${dashed(page.id)}/${dashed(subPage.id)}`} key={index}>
 															<NavText
 																style={{ ...styles.navText, ...styles.subNavText }}>
 																{toTitleCase(subPage.id)}
